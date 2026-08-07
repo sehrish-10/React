@@ -4,10 +4,9 @@
 // import heroImg from './assets/hero.png'
 // import './App.css'
 
-// import User from './User.jsx'
+// import User from './user.jsx'
 // import MyInfo from './MyInfo.jsx'
 // import Hello from './hello.jsx'
-
 
 // function App() {
 //   const [counter, setCounter] = useState(0)
@@ -24,34 +23,58 @@
 //   )
 // }
 // export default App 
+import myImage from './assets/Image.png'
 
-function App(){
+
+function App() {
+  const name = "Sehrish";
+
+  const userObj = {
+    name: "Sehrish",
+    email: "sehrish@gmail.com",
+    age: 20,
+  };
+
+  const userArray = ["Sehrish", "Ali", "Sara"];
+
+  let x = 20;
+  let y = 30;
+  let path="myImage;"
+
+  function fruit() {
+    return "Apple";
+  }
+
+  function sum(a, b) {
+    return a + b;
+  }
+
+  function operation(a, b, op) {
+    if (op === "+") {
+      return a + b;
+    } else if (op === "-") {
+      return a - b;
+    } else if (op === "*") {
+      return a * b;
+    }
+  }
+
   return (
     <div>
-    <h1>First component</h1>
-        <Fruit />
-        <Colors/>
-     </div>
-
-  )
+      <h1>JSX with curly braces</h1>
+      <h1>{name}</h1>
+      <h1>{x + y}</h1>
+      <h1>{fruit()}</h1>
+      <h1>{sum(10, 20)}</h1>
+      <h1>{operation(10, 20, "+")}</h1>
+      <h1>{userObj.name}</h1>
+      <h1>{userObj.email}</h1>
+      <h1>{userArray[0]}</h1>
+<input type="text" placeholder="Enter your name" style={{ width: "150px" }} />
+<br/>
+      <img src={myImage} alt="My Image" width="400" />
+    </div>
+  );
 }
-
-function Fruit(){
-  return(
-    <h1>Apple</h1>
-  )
-
-
-  }
-
-
-function Colors(){
-  return(
-    <h1>Red Color</h1>
-  )
-
-
-  }
-
 
 export default App;
