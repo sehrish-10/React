@@ -82,9 +82,9 @@ function App() {
 
 export default App; */
 
-// NEXT CODE
+// STATE CODE
 
-function App() {
+/* function App() {
   let fruit = "Mango";
 
   const handleFruit = () => {
@@ -97,6 +97,27 @@ function App() {
       <h1>State in React JS</h1>
       <h1>{fruit}</h1>
       <button onClick={handleFruit} >Change fruit name</button>
+    </div>
+  );
+}
+
+export default App;
+ */
+
+// HOOKS CODE
+
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
     </div>
   );
 }
