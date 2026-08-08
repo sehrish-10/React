@@ -180,7 +180,7 @@ function App() {
 
 export default App; */
 
-// PROPS CODE
+/* // PROPS CODE
 // PARENT
 import User from "./User";
 
@@ -207,4 +207,18 @@ function User(props) {
   );
 }
 
-export default User;
+export default User; */
+
+
+// PASSING A MESSAGE
+import Message from "./Message";
+
+function App() {
+  return (
+    <div>
+      <Message text="Hello Sehrish!" />
+    </div>
+  );
+}
+
+export default App;
