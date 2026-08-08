@@ -104,7 +104,8 @@ export default App; */
 export default App;
  */
 
-// HOOKS CODE
+/* // HOOKS CODE
+// useState
 
 import { useState } from "react";
 
@@ -118,6 +119,61 @@ function App() {
       <button onClick={() => setCount(count + 1)}>
         Increase
       </button>
+    </div>
+  );
+}
+
+export default App;
+
+
+// useEffect
+
+
+import { useState, useEffect } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("Count changed:", count);
+  }, [count]);
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </div>
+  );
+}
+
+export default App;
+ */
+
+
+// MULTIPLE IF-ELSE STATEMENTS
+function App() {
+  let age = 18;
+
+  if (age >= 18) {
+    return <h1>You are an adult</h1>;
+  } else {
+    return <h1>You are a child</h1>;
+  }
+}
+
+export default App;
+
+
+// TERNARY OPERATOR
+function App() {
+  let isLoggedIn = true;
+
+  return (
+    <div>
+      {isLoggedIn ? <h1>Welcome!</h1> : <h1>Please Login</h1>}
     </div>
   );
 }
