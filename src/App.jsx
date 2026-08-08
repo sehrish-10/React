@@ -23,6 +23,9 @@
 //   )
 // }
 // export default App 
+
+
+/* //  SECOND FUNCTION
 import myImage from './assets/Image.png'
 
 
@@ -73,6 +76,27 @@ function App() {
 <input type="text" placeholder="Enter your name" style={{ width: "150px" }} />
 <br/>
       <img src={myImage} alt="My Image" width="400" />
+    </div>
+  );
+}
+
+export default App; */
+
+// NEXT CODE
+
+function App() {
+  let fruit = "Mango";
+
+  const handleFruit = () => {
+    fruit = "Banana";
+    console.log(fruit);
+  }
+
+  return (
+    <div>
+      <h1>State in React JS</h1>
+      <h1>{fruit}</h1>
+      <button onClick={handleFruit} >Change fruit name</button>
     </div>
   );
 }
