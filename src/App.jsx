@@ -153,7 +153,7 @@ export default App;
  */
 
 
-// MULTIPLE IF-ELSE STATEMENTS
+/* // MULTIPLE IF-ELSE STATEMENTS
 function App() {
   let age = 18;
 
@@ -178,4 +178,33 @@ function App() {
   );
 }
 
+export default App; */
+
+// PROPS CODE
+// PARENT
+import User from "./User";
+
+function App() {
+  return (
+    <div>
+      <h1>My App</h1>
+
+      <User name="Sehrish" age={21} />
+    </div>
+  );
+}
+
 export default App;
+
+
+// CHILD
+function User(props) {
+  return (
+    <div>
+      <h2>Name: {props.name}</h2>
+      <h2>Age: {props.age}</h2>
+    </div>
+  );
+}
+
+export default User;
