@@ -222,3 +222,16 @@ function App() {
 }
 
 export default App;
+
+// PASSING MULTIPLE VALUES
+import Student from "./Student";
+
+function App() {
+  return (
+    <div>
+      <Student name="Sehrish" age={21} city="Peshawar" />
+    </div>
+  );
+}
+
+export default App;
