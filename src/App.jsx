@@ -258,7 +258,7 @@ function App() {
 export default App; */
 
 // CONDITIONAL RENDERING
-import { useState } from "react";
+/* import { useState } from "react";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -276,6 +276,24 @@ function App() {
       <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Logout" : "Login"}
       </button>
+    </div>
+  );
+}
+
+export default App; */
+
+function App() {
+  const fruits = ["Apple", "Mango", "Banana", "Orange"];
+
+  return (
+    <div>
+      <h1>Fruits</h1>
+
+      <ul>
+        {fruits.map((fruit) => (
+          <li>{fruit}</li>
+        ))}
+      </ul>
     </div>
   );
 }
