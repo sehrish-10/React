@@ -211,7 +211,7 @@ export default User; */
 
 
 // PASSING A MESSAGE
-import Message from "./Message";
+/* import Message from "./Message";
 
 function App() {
   return (
@@ -230,6 +230,26 @@ function App() {
   return (
     <div>
       <Student name="Sehrish" age={21} city="Peshawar" />
+    </div>
+  );
+}
+
+export default App */;
+
+import { useState } from "react";
+
+function App() {
+  const [show, setShow] = useState(true);
+
+  return (
+    <div>
+      <h1>Toggle Example</h1>
+
+      <button onClick={() => setShow(!show)}>
+        {show ? "Hide" : "Show"}
+      </button>
+
+      {show && <h2>Hello! I can be hidden and shown.</h2>}
     </div>
   );
 }
