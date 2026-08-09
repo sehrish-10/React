@@ -236,7 +236,8 @@ function App() {
 
 export default App */;
 
-import { useState } from "react";
+// TOGGLE
+/* import { useState } from "react";
 
 function App() {
   const [show, setShow] = useState(true);
@@ -250,6 +251,31 @@ function App() {
       </button>
 
       {show && <h2>Hello! I can be hidden and shown.</h2>}
+    </div>
+  );
+}
+
+export default App; */
+
+// CONDITIONAL RENDERING
+import { useState } from "react";
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <div>
+      <h1>Conditional Rendering</h1>
+
+      {isLoggedIn ? (
+        <h2>Welcome, User!</h2>
+      ) : (
+        <h2>Please Login</h2>
+      )}
+
+      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? "Logout" : "Login"}
+      </button>
     </div>
   );
 }
