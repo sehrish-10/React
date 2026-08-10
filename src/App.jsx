@@ -350,3 +350,67 @@ function App() {
 }
 
 export default App;
+
+// 3. Multiple Checkboxes
+
+import { useState } from "react";
+
+function App() {
+  const [skills, setSkills] = useState([]);
+
+  const handleChange = (e) => {
+    const { value, checked } = e.target;
+
+    if (checked) {
+      setSkills([...skills, value]);
+    } else {
+      setSkills(skills.filter((skill) => skill !== value));
+    }
+  };
+
+  return (
+    <div>
+      <h1>Select Skills</h1>
+
+      <label>
+        <input
+          type="checkbox"
+          value="HTML"
+          onChange={handleChange}
+        />
+        HTML
+      </label>
+
+      <br />
+
+      <label>
+        <input
+          type="checkbox"
+          value="CSS"
+          onChange={handleChange}
+        />
+        CSS
+      </label>
+
+      <br />
+
+      <label>
+        <input
+          type="checkbox"
+          value="JavaScript"
+          onChange={handleChange}
+        />
+        JavaScript
+      </label>
+
+      <h2>Selected Skills:</h2>
+
+      {skills.map((skill) => (
+        <p key={skill}>{skill}</p>
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
