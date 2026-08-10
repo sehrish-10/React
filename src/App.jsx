@@ -281,7 +281,7 @@ function App() {
 }
 
 export default App; */
-
+/* 
 function App() {
   const fruits = ["Apple", "Mango", "Banana", "Orange"];
 
@@ -318,6 +318,33 @@ function App() {
       />
 
       <h2>Your Name: {name}</h2>
+    </div>
+  );
+}
+
+export default App; */
+
+//  Handle Checkboxes & Get Value
+import { useState } from "react";
+
+function App() {
+  const [isChecked, setIsChecked] = useState(false);
+
+  return (
+    <div>
+      <h1>Checkbox</h1>
+
+      <label>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={(e) => setIsChecked(e.target.checked)}
+        />
+
+        I agree
+      </label>
+
+      <h2>{isChecked ? "Checked" : "Not Checked"}</h2>
     </div>
   );
 }
