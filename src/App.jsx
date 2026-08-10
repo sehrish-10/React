@@ -414,3 +414,42 @@ function App() {
 
 export default App;
 
+
+//  Radio Buttons & Get Values
+import { useState } from "react";
+
+function App() {
+  const [gender, setGender] = useState("");
+
+  return (
+    <div>
+      <h1>Select Gender</h1>
+
+      <label>
+        <input
+          type="radio"
+          name="gender"
+          value="Male"
+          onChange={(e) => setGender(e.target.value)}
+        />
+        Male
+      </label>
+
+      <br />
+
+      <label>
+        <input
+          type="radio"
+          name="gender"
+          value="Female"
+          onChange={(e) => setGender(e.target.value)}
+        />
+        Female
+      </label>
+
+      <h2>Selected: {gender}</h2>
+    </div>
+  );
+}
+
+export default App;
