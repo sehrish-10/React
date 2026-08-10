@@ -453,3 +453,22 @@ function App() {
 }
 
 export default App;
+
+
+
+//  Loop in JSX with map()
+function App() {
+  const fruits = ["Apple", "Mango", "Banana", "Orange"];
+
+  return (
+    <div>
+      <h1>Fruits</h1>
+
+      {fruits.map((fruit) => (
+        <h2 key={fruit}>{fruit}</h2>
+      ))}
+    </div>
+  );
+}
+
+export default App;
