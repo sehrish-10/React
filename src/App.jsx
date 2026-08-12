@@ -178,30 +178,58 @@ return (
 }
 export default App;
 */
+/* import { useState } from "react";
+import Props from "./assets/props.jsx";
+import College from "./assets/College.jsx";
+import Person from "./Person.jsx";
 
-import Props from './assets/props.jsx'
-
-function App() {
-  // let name = "Sehrish";
+function App() { 
   let userObject = {
     name: "Sehrish",
     age: 20,
     email: "sehrish@example.com"
-  }
+  };
 
-   let userObject2 = {
+  let userObject2 = {
     name: "Ali",
     age: 29,
     email: "ali@example.com"
   };
+
+  let collegeNames = ["Harvard", "Stanford", "MIT"];
+
+  const [person, setPerson] = useState("Sehrish");
+
   return (
     <div>
       <h1>Props in React JS</h1>
-      {/* <Props name={name} age={20} email="sehrish@example.com" /> */}
-      <Props user={userObject}/>
-            <Props user={userObject2}/>
 
+      {Person && <Person name={person} />}
+      <button onClick={() => setPerson("Ali")}>update student name</button>
+
+      <College name={collegeNames} />
+
+      <Props user={userObject} />
+      <Props user={userObject2} />
     </div>
-  )
+  );
 }
- export default App;
+
+export default App;
+ */
+
+
+import { useState } from "react";
+function App() {
+  const[val, setVal] = useState("sehrish")
+  
+  return (
+    <div>
+      <h1>Get Input field value</h1>
+      <input type= "text" value={val} onChange={(event) => setVal(event.target.value)} placeholder="Enter your name  "/>
+    <h1>{val}</h1>
+    <button onClick={() => setVal("")}>Clear value</button>
+    </div>
+  );
+}
+export default App;
