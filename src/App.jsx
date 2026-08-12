@@ -157,7 +157,7 @@ function App() {
  export default App;  */
 
 
- import { useState } from 'react';
+/*  import { useState } from 'react';
  function App() {
   const [count, setCount] = useState(0);
 return (
@@ -177,4 +177,31 @@ return (
   );
 }
 export default App;
+*/
 
+import Props from './assets/props.jsx'
+
+function App() {
+  // let name = "Sehrish";
+  let userObject = {
+    name: "Sehrish",
+    age: 20,
+    email: "sehrish@example.com"
+  }
+
+   let userObject2 = {
+    name: "Ali",
+    age: 29,
+    email: "ali@example.com"
+  };
+  return (
+    <div>
+      <h1>Props in React JS</h1>
+      {/* <Props name={name} age={20} email="sehrish@example.com" /> */}
+      <Props user={userObject}/>
+            <Props user={userObject2}/>
+
+    </div>
+  )
+}
+ export default App;
