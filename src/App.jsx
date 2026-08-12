@@ -105,7 +105,7 @@ export default App;*/
 
 // HOOKS CODE
 
-import { useState } from 'react';
+/* import { useState } from 'react';
 function App() {
   const { fruit, setFruit } = useState("Mango");
   
@@ -117,7 +117,44 @@ function App() {
       
     </div>
   );
+export default App;  */
+ 
+/* import Student from "./Student";
+
+function App() {
+  return (
+    <div>
+      <h1>Props in React JS</h1>
+      <Student name="Sehrish" />
+      <Student name="Ali" />
+    </div>
+  );
 }
 
 export default App; 
+ */
+
+
+import {useState} from 'react'
+import Student from './Student';
+
+
+function App() {
+  const [display, setDisplay] = useState(true);
+  return (
+    <div>
+      <h1>Toggle in React js</h1>
+            <button onClick={() => setDisplay(!display)}>Toggle</button>
+
+      {
+        // display ?  <h1>Sehrishh</h1>: null
+         display ?  <Student/>: null
+      }
+     
+    </div>
+  );
+}
+ export default App; 
+
+
  
