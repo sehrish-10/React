@@ -214,11 +214,11 @@ function App() {
     </div>
   );
 }
+ 
+export default App;*/
+ 
 
-export default App;
- */
-
-
+/* // INPUT FIELD
 import { useState } from "react";
 function App() {
   const[val, setVal] = useState("sehrish")
@@ -232,4 +232,99 @@ function App() {
     </div>
   );
 }
+export default App; */
+
+/* import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <h1>Controlled Component</h1>
+
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter your name"
+      />
+
+      <h2>Your name is: {name}</h2>
+    </div>
+  );
+}
+
+export default App; */
+function App() {
+  const userData = [
+    {
+      name: "Sehrish",
+      age: 20,
+      email: "sehrish@example.com",
+      id: 1
+    },
+    {
+      name: "Ali",
+      age: 29,
+      email: "ali@example.com",
+      id: 2
+    },
+    {
+      name: "Sara",
+      age: 29,
+      email: "sara@example.com",
+      id: 3
+    },
+    {
+      name: "Ayesha",
+      age: 29,
+      email: "ayesha@example.com",
+      id: 4
+    }
+  ];
+
+  return (
+    <div>
+      <h1>Loops in React JS</h1>
+      <table border="1">
+<thead>
+  <tr>
+    
+    <td>name </td>
+    <td>age </td>
+    <td>email </td>
+    <td>id </td>
+
+
+  </tr>
+
+</thead>
+
+      </table>
+     <h1>Dummy data</h1>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {userData.map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.age}</td>
+              <td>{user.email}</td>
+              <td>{user.id}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default App;
