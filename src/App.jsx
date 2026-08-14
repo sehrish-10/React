@@ -256,7 +256,7 @@ function App() {
 }
 
 export default App; */
-function App() {
+/* function App() {
   const userData = [
     {
       name: "Sehrish",
@@ -328,12 +328,12 @@ function App() {
 }
 
 export default App;
+ */
 
 
 
 
-
-import { useState } from "react";
+/* import { useState } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -349,7 +349,6 @@ function App() {
     <div>
       <h1>React Practice</h1>
 
-      {/* State + Events */}
       <h2>Count: {count}</h2>
 
       <button onClick={() => setCount(count + 1)}>
@@ -360,7 +359,7 @@ function App() {
         Decrease
       </button>
 
-      {/* Conditional Rendering */}
+     
       <br />
       <br />
 
@@ -370,7 +369,7 @@ function App() {
 
       {show && <h2>Hello! Welcome to React 👋</h2>}
 
-      {/* map() */}
+    
       <h2>Users</h2>
 
       {users.map((user) => (
@@ -380,6 +379,63 @@ function App() {
           <hr />
         </div>
       ))}
+    </div>
+  );
+}
+
+export default App; */
+
+
+
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    alert(`Name: ${name}\nEmail: ${email}`);
+  }
+
+  return (
+    <div>
+      <h1>Registration Form</h1>
+
+      <form onSubmit={handleSubmit}>
+        <label>Name:</label>
+        <br />
+
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter your name"
+        />
+
+        <br />
+        <br />
+
+        <label>Email:</label>
+        <br />
+
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+        />
+
+        <br />
+        <br />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <h2>Preview</h2>
+      <p>Name: {name}</p>
+      <p>Email: {email}</p>
     </div>
   );
 }
