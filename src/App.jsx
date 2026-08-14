@@ -328,3 +328,60 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+  const [show, setShow] = useState(true);
+
+  const users = [
+    { id: 1, name: "Sehrish", age: 21 },
+    { id: 2, name: "Ali", age: 22 },
+    { id: 3, name: "Sara", age: 20 },
+  ];
+
+  return (
+    <div>
+      <h1>React Practice</h1>
+
+      {/* State + Events */}
+      <h2>Count: {count}</h2>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+
+      <button onClick={() => setCount(count - 1)}>
+        Decrease
+      </button>
+
+      {/* Conditional Rendering */}
+      <br />
+      <br />
+
+      <button onClick={() => setShow(!show)}>
+        {show ? "Hide" : "Show"}
+      </button>
+
+      {show && <h2>Hello! Welcome to React 👋</h2>}
+
+      {/* map() */}
+      <h2>Users</h2>
+
+      {users.map((user) => (
+        <div key={user.id}>
+          <p>Name: {user.name}</p>
+          <p>Age: {user.age}</p>
+          <hr />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default App;
