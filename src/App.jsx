@@ -472,3 +472,102 @@ function App() {
 }
 
 export default App;
+
+
+import { useState } from "react";
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  // GET API
+  const getUsers = async () => {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+
+    const data = await response.json();
+    setUsers(data);
+  };
+
+  // POST API
+  const addUser = async () => {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Sehrish",
+          email: "sehrish@example.com",
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    console.log("Added User:", data);
+  };
+
+  // PUT API
+  const updateUser = async () => {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users/1",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Updated Sehrish",
+          email: "updated@example.com",
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    console.log("Updated User:", data);
+  };
+
+  // DELETE API
+  const deleteUser = async () => {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users/1",
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (response.ok) {
+      console.log("User deleted successfully");
+    }
+  };
+
+  return (
+    <div>
+      <h1>React API Practice</h1>
+
+      <button onClick={getUsers}>GET Users</button>
+
+      <button onClick={addUser}>POST User</button>
+
+      <button onClick={updateUser}>PUT User</button>
+
+      <button onClick={deleteUser}>DELETE User</button>
+
+      <h2>Users</h2>
+
+      {users.map((user) => (
+        <div key={user.id}>
+          <h3>{user.name}</h3>
+          <p>{user.email}</p>
+          <hr />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default App;
