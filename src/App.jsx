@@ -387,7 +387,7 @@ export default App; */
 
 
 
-import { useState } from "react";
+/* import { useState } from "react";
 
 function App() {
   const [name, setName] = useState("");
@@ -566,6 +566,49 @@ function App() {
           <hr />
         </div>
       ))}
+    </div>
+  );
+}
+
+export default App; */
+
+
+import { useState } from "react";
+
+function InputBox({ name, setName }) {
+  return (
+    <div>
+      <h2>Enter Your Name</h2>
+
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter name"
+      />
+    </div>
+  );
+}
+
+function DisplayName({ name }) {
+  return (
+    <div>
+      <h2>Your Name:</h2>
+      <h3>{name}</h3>
+    </div>
+  );
+}
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <h1>Lifting State Up</h1>
+
+      <InputBox name={name} setName={setName} />
+
+      <DisplayName name={name} />
     </div>
   );
 }
