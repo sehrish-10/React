@@ -616,7 +616,7 @@ function App() {
 export default App; */
 
 
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -641,6 +641,72 @@ function App() {
         </div>
       ))}
     </div>
+  );
+}
+
+export default App; */
+
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  Outlet,
+} from "react-router-dom";
+
+function Home() {
+  return <h2>Home Page</h2>;
+}
+
+function Dashboard() {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+
+      <nav>
+        <Link to="profile">Profile</Link> |{" "}
+        <Link to="settings">Settings</Link> |{" "}
+        <Link to="orders">Orders</Link>
+      </nav>
+
+      {/* Nested route appears here */}
+      <Outlet />
+    </div>
+  );
+}
+
+function Profile() {
+  return <h2>Profile Page</h2>;
+}
+
+function Settings() {
+  return <h2>Settings Page</h2>;
+}
+
+function Orders() {
+  return <h2>Orders Page</h2>;
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+
+        <Route path="/" element={<Home />} />
+
+        {/* Parent Route */}
+        <Route path="/dashboard" element={<Dashboard />}>
+
+          {/* Nested Routes */}
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="orders" element={<Orders />} />
+
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
