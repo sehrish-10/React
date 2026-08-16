@@ -646,7 +646,7 @@ function App() {
 
 export default App; */
 
-
+/* 
 import {
   BrowserRouter,
   Routes,
@@ -670,7 +670,6 @@ function Dashboard() {
         <Link to="orders">Orders</Link>
       </nav>
 
-      {/* Nested route appears here */}
       <Outlet />
     </div>
   );
@@ -695,16 +694,76 @@ function App() {
 
         <Route path="/" element={<Home />} />
 
-        {/* Parent Route */}
         <Route path="/dashboard" element={<Dashboard />}>
 
-          {/* Nested Routes */}
+         
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
           <Route path="orders" element={<Orders />} />
 
         </Route>
 
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App; */
+
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+
+function Home() {
+  return <h1>Home Page</h1>;
+}
+
+function About() {
+  return <h1>About Page</h1>;
+}
+
+function Contact() {
+  return <h1>Contact Page</h1>;
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
+        >
+          Home
+        </NavLink>
+
+        {" | "}
+
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
+        >
+          About
+        </NavLink>
+
+        {" | "}
+
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
+        >
+          Contact
+        </NavLink>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
