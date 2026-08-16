@@ -817,7 +817,7 @@ export default App; */
 
 
 
-import {
+/* import {
   BrowserRouter,
   Routes,
   Route,
@@ -858,6 +858,122 @@ function App() {
 
       </Routes>
 
+    </BrowserRouter>
+  );
+}
+
+export default App; */
+
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  NavLink,
+  Outlet,
+  useParams,
+} from "react-router-dom";
+
+const users = [
+  { id: 1, name: "Sehrish", email: "sehrish@example.com" },
+  { id: 2, name: "Ali", email: "ali@example.com" },
+  { id: 3, name: "Sara", email: "sara@example.com" },
+];
+
+function Home() {
+  return <h1>🏠 Welcome to the Home Page</h1>;
+}
+
+function Dashboard() {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+
+      <nav>
+        <NavLink to="users">Users</NavLink>
+        {" | "}
+        <NavLink to="profile">Profile</NavLink>
+      </nav>
+
+      <hr />
+
+      <Outlet />
+    </div>
+  );
+}
+
+function Users() {
+  return (
+    <div>
+      <h2>Users</h2>
+
+      {users.map((user) => (
+        <div key={user.id}>
+          <h3>{user.name}</h3>
+
+          <NavLink to={`/dashboard/users/${user.id}`}>
+            View Profile
+          </NavLink>
+
+          <hr />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function UserProfile() {
+  const { id } = useParams();
+
+  const user = users.find((user) => user.id === Number(id));
+
+  if (!user) {
+    return <h2>User not found</h2>;
+  }
+
+  return (
+    <div>
+      <h2>{user.name}</h2>
+      <p>Email: {user.email}</p>
+      <p>User ID: {user.id}</p>
+    </div>
+  );
+}
+
+function Profile() {
+  return (
+    <div>
+      <h2>My Profile</h2>
+      <p>Welcome to your profile!</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        {" | "}
+        <NavLink to="/dashboard">Dashboard</NavLink>
+      </nav>
+
+      <hr />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="users" element={<Users />} />
+
+          <Route
+            path="users/:id"
+            element={<UserProfile />}
+          />
+
+          <Route path="profile" element={<Profile />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
