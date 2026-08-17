@@ -1018,3 +1018,31 @@ function App() {
 }
 
 export default App;
+
+
+
+
+import { useState } from "react";
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  return (
+    <div
+      style={{
+        backgroundColor: darkMode ? "#222" : "#fff",
+        color: darkMode ? "#fff" : "#222",
+        minHeight: "100vh",
+        padding: "30px",
+      }}
+    >
+      <h1>{darkMode ? "Dark Mode" : "Light Mode"}</h1>
+
+      <button onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+      </button>
+    </div>
+  );
+}
+
+export default App;
