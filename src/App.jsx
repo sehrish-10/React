@@ -1046,3 +1046,59 @@ function App() {
 }
 
 export default App;
+
+
+import { useState } from "react";
+
+function App() {
+  const [cart, setCart] = useState([]);
+
+  const products = [
+    { id: 1, name: "Laptop", price: 800 },
+    { id: 2, name: "Mouse", price: 30 },
+    { id: 3, name: "Keyboard", price: 50 },
+  ];
+
+  function addToCart(product) {
+    setCart([...cart, product]);
+  }
+
+  function removeFromCart(id) {
+    setCart(cart.filter((item) => item.id !== id));
+  }
+
+  return (
+    <div>
+      <h1>Products</h1>
+
+      {products.map((product) => (
+        <div key={product.id}>
+          <h3>{product.name}</h3>
+          <p>${product.price}</p>
+
+          <button onClick={() => addToCart(product)}>
+            Add to Cart
+          </button>
+        </div>
+      ))}
+
+      <hr />
+
+      <h1>Cart</h1>
+
+      {cart.map((item, index) => (
+        <div key={index}>
+          <p>
+            {item.name} - ${item.price}
+          </p>
+
+          <button onClick={() => removeFromCart(item.id)}>
+            Remove
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default App;
