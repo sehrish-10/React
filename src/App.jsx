@@ -979,7 +979,7 @@ function App() {
 }
 
 export default App; */
-
+/* 
 
 import { useState } from "react";
 
@@ -1097,6 +1097,32 @@ function App() {
           </button>
         </div>
       ))}
+    </div>
+  );
+}
+
+export default App; */
+
+
+
+import { useRef } from "react";
+
+function App() {
+  const inputRef = useRef();
+
+  function focusInput() {
+    inputRef.current.focus();
+  }
+
+  return (
+    <div>
+      <h1>useRef Practice</h1>
+
+      <input ref={inputRef} placeholder="Type something..." />
+
+      <button onClick={focusInput}>
+        Focus Input
+      </button>
     </div>
   );
 }
