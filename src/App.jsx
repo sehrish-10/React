@@ -1150,3 +1150,42 @@ function App() {
 }
 
 export default App;
+
+
+import { useState } from "react";
+
+function App() {
+  const [items, setItems] = useState(["Apple", "Banana"]);
+
+  function addItem() {
+    setItems([...items, "Orange"]);
+  }
+
+  function removeItem(itemToRemove) {
+    setItems(
+      items.filter((item) => item !== itemToRemove)
+    );
+  }
+
+  return (
+    <div>
+      <h1>Fruits</h1>
+
+      {items.map((item) => (
+        <div key={item}>
+          <p>{item}</p>
+
+          <button onClick={() => removeItem(item)}>
+            Remove
+          </button>
+        </div>
+      ))}
+
+      <button onClick={addItem}>
+        Add Orange
+      </button>
+    </div>
+  );
+}
+
+export default App;
