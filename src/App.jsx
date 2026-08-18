@@ -1128,3 +1128,25 @@ function App() {
 }
 
 export default App;
+
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  function increase() {
+    setCount((prevCount) => prevCount + 1);
+  }
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+
+      <button onClick={increase}>
+        Increase
+      </button>
+    </div>
+  );
+}
+
+export default App;
